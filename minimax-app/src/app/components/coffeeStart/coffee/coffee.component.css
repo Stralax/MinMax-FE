@@ -6,6 +6,11 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #5D2906;
+    background-image: url("../../../../../public/assets/images/homepage4.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 .btn {
