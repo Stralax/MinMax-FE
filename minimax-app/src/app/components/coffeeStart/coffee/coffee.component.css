@@ -1,7 +1,5 @@
 body {
     display:flexbox;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
@@ -30,8 +28,8 @@ body {
 }
 .coffeeBlock {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 80%;
+    left: 60%;
     transform: translate(-50%, -50%);
     width: 250px;
 }

@@ -3,5 +3,5 @@ import { CoffeeComponent } from './components/coffeeStart/coffee/coffee.componen
 import { CoffePlaneviewComponent } from './components/coffe-planeview/coffe-planeview.component';
 
 export const routes: Routes = [
-    { path: '', component: CoffePlaneviewComponent }
+    { path: '', component: CoffeeComponent }
 ];
