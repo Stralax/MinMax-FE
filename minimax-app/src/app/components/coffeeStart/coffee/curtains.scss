@@ -1,0 +1,129 @@
+@use "sass:color";
+
+// Main Colors Variables
+// $lights_out: black;
+$lights_on: white;
+$curtain_color: firebrick;
+$curtain_shadows: color.adjust($curtain_color, $lightness: -30%);
+$curtain_highlights: color.adjust($curtain_color, $lightness: 30%);
+$curtain_3d: repeating-linear-gradient(
+  to left,
+  $curtain_color 4vw,
+  $curtain_shadows 8vw,
+  $curtain_highlights 10vw
+);
+
+/* // Small Reset CSS */
+html, body { margin: 0; padding: 0 };
+
+/* // General page hover controller */
+.stage {
+  &__ligths {
+    // background: $lights_out;
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+  }
+
+  &__title {
+    display: table;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+  }
+  &__description {
+    // color: $lights_out;
+    display: table-cell;
+    vertical-align: middle;
+    transition: color 3s ease;
+    &:hover {
+      color: $lights_on;
+    }
+  }
+
+  /* // curtains open animations triggers */
+  &:hover {
+    div {
+      &.curtain {
+        &.right {
+          -webkit-transform-origin: 120% bottom;
+          transform-origin: 120% bottom;
+          -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+        }
+        &.left {
+          -webkit-transform-origin: -120% top;
+          transform-origin: -120% top;
+          -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+        }
+      }
+    }
+  }
+}
+
+/* // Curtains styles */
+.curtain {
+  z-index: 10;
+  width: 100%;
+  position: absolute;
+  top: -10%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transition: -webkit-transform 6s ease;
+  transition: transform 6s ease;
+  transition: transform 6s ease, -webkit-transform 6s ease;
+
+  /* // Original position animation */
+  &.left {
+    -webkit-transform-origin: -120% top;
+    transform-origin: -120% top;
+  }
+
+  &.right {
+    left: 50%;
+    -webkit-transform-origin: 120% top;
+    transform-origin: 120% top;
+  }
+
+  /* // Curtain nodes */
+  &__node {
+    width: 10vw;
+    height: 120vh;
+    background: $curtain_3d;
+    background-size: 100% 100%;
+    display: inline-block;
+    -webkit-transform-origin: 0 0%;
+    transform-origin: 0 0%;
+    -webkit-transform: rotate(3deg);
+    transform: rotate(3deg);
+    -webkit-animation: curtainNode 2s ease infinite;
+    animation: curtainNode 2s ease infinite;
+
+    /* // styles for the curtain nodes */
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        -webkit-animation-delay: (-0.1s * $i);
+        animation-delay: (-0.1s * $i);
+      }
+    }
+  }
+}
+
+/* // Swing effect keyframes */
+@-webkit-keyframes curtainNode {
+  50% {
+    -webkit-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+  }
+}
+@keyframes curtainNode {
+  50% {
+    -webkit-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+  }
+}

@@ -1,5 +1,5 @@
 body {
-    display: flex;
+    display:flexbox;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -11,6 +11,7 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
+    overflow: hidden;
 }
 
 .btn {
