@@ -29,7 +29,6 @@ export class ChatbotPageComponent implements OnInit {
   chatHistory: any[] | null = null;
   isLoading: boolean = false;
   showContextForm: boolean = true;
-  funnySeeds: boolean = false;
   error: string | null = null;
   backendStatus: 'checking' | 'online' | 'offline' = 'checking';
   imageUrl: string = 'https://placehold.co/800x400?text=Coffee+Fortune'; // Placeholder image
@@ -98,8 +97,7 @@ export class ChatbotPageComponent implements OnInit {
 
     this.chatbotService.startFortuneSession(
       this.selectedPersona.id, 
-      cleanContext, 
-      this.funnySeeds
+      cleanContext
     ).subscribe({
       next: (response) => {
         this.isLoading = false;

@@ -25,15 +25,15 @@ export interface ChatResponse {
   providedIn: 'root'
 })
 export class ChatbotService {
-  private apiUrl = 'http://localhost:5000/api/chatbot';
+  // Fix the API URL - it should not have 'api/chatbot/' prefixed to each endpoint
+  private apiUrl = 'http://localhost:5000'; // Remove the duplicated path segment
 
-  // Define personas
   personas: Persona[] = [
     {
       id: 'mystara',
-      name: 'Mystara',
-      description: 'A mysterious fortune teller with a calm and enigmatic presence.',
-      image: 'assets/images/mystara.jpg'
+      name: 'Babushka Zoya',
+      description: 'A sarcastic Russian fortune teller who delivers divine roastings with tough love. Expect unsolicited life advice and passive-aggressive wisdom.',
+      image: 'assets/babushka.jpg'
     },
     {
       id: 'chadwick',
@@ -52,19 +52,16 @@ export class ChatbotService {
   constructor(private http: HttpClient) { }
 
   testBackendConnection(): Observable<any> {
-    // Fix the URL by removing the duplicated 'chatbot' segment
-    return this.http.get<any>(`${this.apiUrl}/test`);
+    return this.http.get(`${this.apiUrl}/api/chatbot/test`);
   }
 
   startFortuneSession(
     personaId: string, 
-    userContext: UserContext, 
-    useFunnySeeds: boolean = false
-  ): Observable<ChatResponse> {
-    return this.http.post<ChatResponse>(`${this.apiUrl}/start`, {
+    userContext: UserContext
+  ): Observable<any> {
+    return this.http.post(`${this.apiUrl}/api/chatbot/start`, {
       persona_name: personaId,
-      user_context: userContext,
-      use_funny_seeds: useFunnySeeds
+      user_context: userContext
     });
   }
 
@@ -73,7 +70,7 @@ export class ChatbotService {
     chatHistory: any[],
     userMessage: string
   ): Observable<ChatResponse> {
-    return this.http.post<ChatResponse>(`${this.apiUrl}/continue`, {
+    return this.http.post<ChatResponse>(`${this.apiUrl}/api/chatbot/continue`, {
       persona_name: personaId,
       chat_history: chatHistory,
       user_message: userMessage

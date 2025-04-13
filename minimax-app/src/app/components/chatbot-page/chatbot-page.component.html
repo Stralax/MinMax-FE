@@ -43,14 +43,6 @@
         </div>
       </div>
       
-      <div class="options">
-        <label class="checkbox-container">
-          <input type="checkbox" [(ngModel)]="funnySeeds">
-          <span class="checkmark"></span>
-          Use humorous predictions (especially for Chadwick & Zorp!)
-        </label>
-      </div>
-      
       <button class="start-button" (click)="startChat()" [disabled]="isLoading || !selectedPersona">
         <span *ngIf="!isLoading">Begin Your Reading</span>
         <span *ngIf="isLoading">Consulting the cosmos...</span>
