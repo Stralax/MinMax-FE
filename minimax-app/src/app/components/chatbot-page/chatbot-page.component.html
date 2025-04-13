@@ -1,1 +1,105 @@
-<P></P>
+<div class="chatbot-container">
+  <h1 class="page-title">AI Fortune Teller</h1>
+  
+  <!-- Error message -->
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+    <div *ngIf="backendStatus === 'offline'" class="backend-status-error">
+      Backend server appears to be offline. Please ensure the Flask server is running on port 5000.
+    </div>
+  </div>
+
+  <!-- Setup section with persona selection and user context -->
+  <div *ngIf="showContextForm" class="setup-section">
+    <!-- Persona selection -->
+    <div class="persona-selection">
+      <h2>Choose Your Fortune Teller</h2>
+      <div class="personas-grid">
+        <div 
+          *ngFor="let persona of personas" 
+          class="persona-card" 
+          [class.selected]="selectedPersona?.id === persona.id"
+          (click)="selectPersona(persona)">
+          <div class="persona-avatar" [style.background-image]="persona.image ? 'url(' + persona.image + ')' : null"></div>
+          <h3>{{ persona.name }}</h3>
+          <p>{{ persona.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- User context form -->
+    <div class="context-form">
+      <h2>Tell Us About Yourself</h2>
+      <p class="subtitle">The more you share, the more personalized your reading will be.</p>
+      
+      <div class="form-fields">
+        <div *ngFor="let field of availableContextFields" class="form-group">
+          <label [for]="field.key">{{ field.label }}</label>
+          <input 
+            type="text" 
+            [id]="field.key"
+            [(ngModel)]="userContext[field.key]" 
+            placeholder="Enter your {{ field.label.toLowerCase() }}">
+        </div>
+      </div>
+      
+      <div class="options">
+        <label class="checkbox-container">
+          <input type="checkbox" [(ngModel)]="funnySeeds">
+          <span class="checkmark"></span>
+          Use humorous predictions (especially for Chadwick & Zorp!)
+        </label>
+      </div>
+      
+      <button class="start-button" (click)="startChat()" [disabled]="isLoading || !selectedPersona">
+        <span *ngIf="!isLoading">Begin Your Reading</span>
+        <span *ngIf="isLoading">Consulting the cosmos...</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Chat interface with image and messages -->
+  <div *ngIf="!showContextForm" class="fortune-interface">
+    <!-- Image container - top 1/4 -->
+    <div class="image-container">
+      <img [src]="imageUrl" alt="Fortune Teller Coffee" class="fortune-image">
+    </div>
+    
+    <!-- Chat interface -->
+    <div class="chat-interface">
+      <div class="chat-header">
+        <div *ngIf="selectedPersona" class="persona-info">
+          <div class="persona-avatar small" [style.background-image]="selectedPersona.image ? 'url(' + selectedPersona.image + ')' : null"></div>
+          <h3>{{ selectedPersona.name }}</h3>
+        </div>
+        <button class="reset-button" (click)="resetChat()">Start a New Reading</button>
+      </div>
+      
+      <!-- Messages container -->
+      <div class="messages-container">
+        <div *ngFor="let message of messages" class="message" [ngClass]="message.sender">
+          <div class="message-content" [innerHTML]="message.sender === 'bot' ? sanitizeAndRenderMarkdown(message.content) : message.content"></div>
+          <div class="message-time">{{ message.timestamp | date:'shortTime' }}</div>
+        </div>
+        
+        <div *ngIf="isLoading" class="loading-indicator">
+          <div class="dot-typing"></div>
+        </div>
+      </div>
+      
+      <!-- Message input -->
+      <div class="message-input-container">
+        <input 
+          type="text" 
+          class="message-input" 
+          [(ngModel)]="newMessage" 
+          placeholder="Ask for more insights..." 
+          (keyup.enter)="sendMessage()"
+          [disabled]="isLoading">
+        <button class="send-button" (click)="sendMessage()" [disabled]="isLoading || !newMessage.trim()">
+          Send
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
