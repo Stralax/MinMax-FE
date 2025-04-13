@@ -19,7 +19,7 @@ interface ChatMessage {
   standalone: true,
   imports: [CommonModule, FormsModule, HttpClientModule, GetInfoComponent],
   templateUrl: './chatbot-page.component.html',
-  styleUrl: './chatbot-page.component.css',
+  styleUrls: ['./chatbot-page.component.css'],
   providers: [ChatbotService]
 })
 export class ChatbotPageComponent implements OnInit {
@@ -28,9 +28,9 @@ export class ChatbotPageComponent implements OnInit {
   userContext: UserContext = {
     name: 'Ana',
     age: '22',
-    career: 'programmer student',
-    relationship_status: 'dating',
-    main_question: 'love life',
+    career: 'Computer Science Student',
+    relationship_status: 'In a Relationship',
+    main_question: 'Studies',
   };
   messages: ChatMessage[] = [];
   newMessage: string = '';
@@ -46,10 +46,7 @@ export class ChatbotPageComponent implements OnInit {
     { key: 'age', label: 'Age' },
     { key: 'career', label: 'Career' },
     { key: 'relationship_status', label: 'Relationship Status' },
-    { key: 'zodiac', label: 'Zodiac Sign' },
-    { key: 'current_mood', label: 'Current Mood' },
     { key: 'main_question', label: 'Main Category' },
-    { key: 'health_concern', label: 'Health Interest' } // Add new field for wellness persona
   ];
 
   constructor(
