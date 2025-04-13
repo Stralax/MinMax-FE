@@ -23,7 +23,13 @@ interface ChatMessage {
 export class ChatbotPageComponent implements OnInit {
   personas: Persona[] = [];
   selectedPersona: Persona | null = null;
-  userContext: UserContext = {};
+  userContext: UserContext = {
+    name: 'Ana',
+    age: '22',
+    career: 'programmer student',
+    relationship_status: 'dating',
+    main_question: 'love life',
+  };
   messages: ChatMessage[] = [];
   newMessage: string = '';
   chatHistory: any[] | null = null;
@@ -40,7 +46,8 @@ export class ChatbotPageComponent implements OnInit {
     { key: 'relationship_status', label: 'Relationship Status' },
     { key: 'zodiac', label: 'Zodiac Sign' },
     { key: 'current_mood', label: 'Current Mood' },
-    { key: 'main_question', label: 'Main Question' }
+    { key: 'main_question', label: 'Main Category' },
+    { key: 'health_concern', label: 'Health Interest' } // Add new field for wellness persona
   ];
 
   constructor(
@@ -170,7 +177,16 @@ export class ChatbotPageComponent implements OnInit {
 
   resetChat() {
     this.selectedPersona = null;
-    this.userContext = {};
+    this.userContext = {
+      name: 'Anonymous Seeker',
+      age: 'mysterious age',
+      career: 'undisclosed profession',
+      relationship_status: 'cosmic connection status',
+      zodiac: 'celestial alignment',
+      current_mood: 'contemplative',
+      main_question: 'seeking universal wisdom',
+      health_concern: 'overall wellbeing'
+    };
     this.messages = [];
     this.chatHistory = null;
     this.showContextForm = true;

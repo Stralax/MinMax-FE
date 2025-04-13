@@ -74,6 +74,11 @@
         </div>
       </div>
       
+      <!-- Add a hint for users when they select the wellness persona -->
+      <div *ngIf="selectedPersona?.id === 'wellness'" class="persona-hint">
+        <p>For more personalized health insights, consider sharing your health interests or concerns in the "Health Interest" field.</p>
+      </div>
+
       <!-- Message input -->
       <div class="message-input-container">
         <input 

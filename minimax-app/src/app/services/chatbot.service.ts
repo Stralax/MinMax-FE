@@ -46,6 +46,12 @@ export class ChatbotService {
       name: 'Zorp',
       description: 'An alien intern analyzing human fortunes with detached scientific curiosity.',
       image: 'assets/images/zorp.jpg'
+    },
+    {
+      id: 'wellness',
+      name: 'Sage Harmony',
+      description: 'A holistic wellness guide who connects your life patterns to practical health advice through coffee cup readings.',
+      image: 'assets/images/wellness-oracle.jpg'
     }
   ];
 
