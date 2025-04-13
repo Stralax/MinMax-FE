@@ -15,12 +15,14 @@ body {
 }
 
 .btn {
-    padding: 12px 24px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
+    margin: -15px auto 0;
+    background-color: #fff;
+    height: 110px;
+    width: 100%;
+    max-width: 180px;
+    border-bottom-left-radius: 45%;
+    border-bottom-right-radius: 45%; 
+    clip-path: polygon(50% 250%, 0 0, 100% 0);
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -38,84 +40,114 @@ body {
 
 .coffee {
     background-color: #501E03;
-    height: 20px;
+    height: 15px;
     border-radius: 50%;
     z-index: 99;
     position: relative;
-    margin: 0 auto -28px;
-    width: 233px;
+    margin: 0 auto -20px;
+    width: 170px;
 }
 
 .lid {
     background-color: #fff;
-    height: 20px;
+    height: 22px;
     border-radius: 50%;
-    border: 8px solid #ddd;
+    border: 4 px solid #ddd;
+    max-width: 180px;
+    margin: -15px auto 0;
     z-index: 9;
     position: relative;
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 51%);
 }
 
 .cup {
-    margin: -18px auto 0;
+    margin: -15px auto 0;
     background-color: #fff;
-    height: 150px;
+    height: 110px;
     width: 100%;
-    max-width: 240px;
+    max-width: 180px;
     border-bottom-left-radius: 45%;
     border-bottom-right-radius: 45%; 
     clip-path: polygon(50% 250%, 0 0, 100% 0);
 }
 
+
 .cup-handle {
     position: absolute;
-    right: -20px;
-    top: 40px;
-    width: 40px;
-    height: 55px;
-    border: 20px solid #fff;
+    right: 15px;
+    top: 30px;
+    width: 30px;
+    height: 40px;
+    border: 15px solid #fff;
     border-left: none;
     border-radius: 0 90% 90% 40%;
     transform: rotate(18deg);
   }
 
 .logo {
-    max-width: 100px;
+    max-width: 70px;
     position: absolute;
     top: 25%;
-    left: 28%;
+    left: 35%;
 }
+
+.cup-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    opacity: 0;
+    color: white;
+    border: none;
+    height: 110px;
+    width: 100%;
+    max-width: 180px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+  }
+
+  .cup-button:hover {
+    background-color: #45a049;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
 
 .bottom {
     background-color: #fff;
-    height: 20px;
+    height: 18px;
     border-radius: 50%;
     z-index: 9;
     position: relative;
-    width: 250px;
-    margin: -10px auto 0;
+    width: 180px;
+    margin: -8px auto 0;
 }
 
 .vapour {
     position: relative;
     display: flex;
     z-index: 1;
-    padding: 0 20px;
+    padding: 0 15px;
     justify-content: center;
 }
 
 .vapour span {
     position: relative;
-    bottom: 50px;
+    bottom: 40px;
     display: block;
-    margin: 0 2px 50px;
-    min-width: 8px;
-    height: 120px;
+    margin: 0 2px 40px;
+    min-width: 6px;
+    height: 90px;
     background: #fff;
     border-radius: 50%;
     animation: animate 5s linear infinite;
     opacity: 0;
-    filter: blur(10px);
+    filter: blur(8px);
     animation-delay: calc(var(--v) * -0.5s);
 }
 
@@ -128,12 +160,12 @@ body {
         opacity: 1;
     }
     50% {
-        transform: translateY(-150px) scaleX(5);
+        transform: translateY(-120px) scaleX(5);
     }
     95% {
         opacity: 0;
     }
     100% {
-        transform: translateY(-300px) scaleX(10);
+        transform: translateY(-240px) scaleX(10);
     }
 }

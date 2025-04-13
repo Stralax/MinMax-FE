@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Route } from '@angular/router';
 
 @Component({
   selector: 'app-coffee',
@@ -7,5 +8,10 @@ import { Component } from '@angular/core';
   styles: ``
 })
 export class CoffeeComponent {
+  // constructor(private route: Route) {}  // <-- Inject Router
+
+  // navigateToCoffee() {
+  //   this.route.navigate(['/coffee']);  // <-- Define navigation method
+  // }
 
 }
