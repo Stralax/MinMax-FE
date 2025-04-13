@@ -23,8 +23,10 @@ export class CoffePlaneviewComponent {
     private router: Router
   ) {} // Fixed constructor syntax
 
+
   async onSubmit(): Promise<void> {
     console.log("ALO");
+    
     for(let i=0; i<1; i++){
       let p = await this.linkService.getLink(this.uploadedImages[i]);
       this.link = p.toString();
@@ -33,6 +35,7 @@ export class CoffePlaneviewComponent {
       // console.log(this.product.images);
       console.log(this.link);
     }
+    this.router.navigate(['chatbot']);
   }
 
   // Suggested additional method for image handling
