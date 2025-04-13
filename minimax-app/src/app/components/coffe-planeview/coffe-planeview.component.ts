@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { NotepadComponent } from '../notepad/notepad/notepad.component';
 import { LinkService } from '../../services/link.service';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
+
 
 @Component({
   selector: 'app-coffe-planeview',
@@ -20,20 +22,22 @@ export class CoffePlaneviewComponent {
 
   constructor(
     private linkService: LinkService,
-    private router: Router
+    private router: Router,
   ) {} // Fixed constructor syntax
 
 
   async onSubmit(): Promise<void> {
-    console.log("ALO");
+    
     
     for(let i=0; i<1; i++){
       let p = await this.linkService.getLink(this.uploadedImages[i]);
       this.link = p.toString();
-      console.log(this.link);
+      // console.log(this.link);
+      environment.link = this.link;
+      console.log(environment.link);
       // this.product.images.push(this.link);
       // console.log(this.product.images);
-      console.log(this.link);
+      // console.log(this.link);
     }
     this.router.navigate(['chatbot']);
   }
