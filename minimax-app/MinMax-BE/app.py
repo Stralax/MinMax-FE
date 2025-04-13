@@ -258,7 +258,7 @@ def continue_fortune_session(persona_name, chat_history, user_message):
 
     # Extract the original seed prediction from the first message in chat history
     original_theme = ""
-    if chat_history and len(chat_history) > 0:
+    if chat_history and len(chat_history > 0):
         first_message = chat_history[0].get('parts', [''])[0]
         if 'core theme for this reading was' in first_message:
             theme_parts = first_message.split("The core theme for this reading was '")

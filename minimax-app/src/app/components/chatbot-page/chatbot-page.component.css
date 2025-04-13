@@ -160,7 +160,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  height: 75%; /* Bottom 3/4 of the fortune interface */
+  height: 100%; /* Take up the full height of the fortune interface */
 }
 
 .chat-header {
@@ -330,27 +330,9 @@
   font-style: italic;
 }
 
-/* New fortune layout with image and chat */
+/* New fortune layout without image */
 .fortune-interface {
   display: flex;
   flex-direction: column;
   height: 80vh; /* Use viewport height for better responsiveness */
-}
-
-.image-container {
-  height: 25%; /* Top 1/4 of the fortune interface */
-  width: 100%;
-  overflow: hidden;
-  background-color: #f0f0f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 15px;
-  border-radius: 8px 8px 0 0;
-}
-
-.fortune-image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
 }

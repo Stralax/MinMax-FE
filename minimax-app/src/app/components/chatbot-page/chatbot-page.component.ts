@@ -110,6 +110,7 @@ export class ChatbotPageComponent implements OnInit {
           if (response.image_url) {
             this.imageUrl = response.image_url;
           }
+          // Add message without image URL
           this.messages.push({
             content: response.message,
             sender: 'bot',
@@ -151,6 +152,7 @@ export class ChatbotPageComponent implements OnInit {
         this.isLoading = false;
         if (response.status === 'success') {
           this.chatHistory = response.chat_history || null; // Handle undefined case
+          // Add message without image URL
           this.messages.push({
             content: response.message,
             sender: 'bot',
