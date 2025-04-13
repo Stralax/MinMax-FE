@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ChatbotService, UserContext, Persona } from '../../services/chatbot.service';
 import { marked } from 'marked';
+import { GetInfoComponent } from '../get-info/get-info.component';
+import { environment } from '../../environments/environment';
 
 interface ChatMessage {
   content: string;
@@ -15,7 +17,7 @@ interface ChatMessage {
 @Component({
   selector: 'app-chatbot-page',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, HttpClientModule, GetInfoComponent],
   templateUrl: './chatbot-page.component.html',
   styleUrl: './chatbot-page.component.css',
   providers: [ChatbotService]
@@ -55,10 +57,21 @@ export class ChatbotPageComponent implements OnInit {
     private sanitizer: DomSanitizer
   ) {}
 
+  private myRepeatingFunction() {
+    const imageUrl: string = environment.resultIMG;
+  }
+  
+
   ngOnInit() {
     this.personas = this.chatbotService.personas;
-    this.checkBackendStatus();
+
   }
+
+  OnChange(){
+    this.myRepeatingFunction();
+  }
+
+  
 
   checkBackendStatus() {
     this.backendStatus = 'checking';

@@ -5,6 +5,10 @@ import os
 import random
 import json
 from dotenv import load_dotenv
+import time
+import socket
+
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -25,6 +29,12 @@ try:
 except Exception as e:
     print(f"🚨 Error configuring Gemini: {e}")
     model = None
+
+# seed_prediction = os.getenv('SEED_PREDICTION')
+# print(seed_prediction)
+
+with open('shared-data.txt', 'r') as file:
+    seed_prediction = file.read().strip()
 
 # --- Persona Definitions ---
 PERSONAS = {

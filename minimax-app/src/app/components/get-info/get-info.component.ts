@@ -5,6 +5,10 @@ import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { CoffeeService } from '../../services/coffee.service';
 import { env } from 'process';
+import * as fs from 'fs';
+import * as net from "net"
+
+// dotenv.config();
 
 @Component({
   selector: 'app-get-info',
@@ -37,7 +41,15 @@ export class GetInfoComponent {
 
     // Extract the part before the marker
     environment.data = index !== -1 ? this.data.substring(0, index) : this.data;
+    const data2 = index !== -1 ? this.data.substring(0, index) : this.data;
     console.log(environment.data);
+    // (process.env as { SEED_PREDICTION?: string }).SEED_PREDICTION = environment.data;
+    // fs.writeFileSync('../../../../MinMax-BE/shared-data.txt', data2, 'utf8');
+    // const client = new net.Socket();
+    // client.connect(8080, "localhost", () => {
+    //   client.write(data2);
+    //   client.end();
+    // })
   }
 
   private extractLinkFromText(text: string): string{

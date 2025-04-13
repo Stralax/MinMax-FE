@@ -1,6 +1,6 @@
 <div class="chatbot-container">
   <h1 class="page-title">AI Fortune Teller</h1>
-  
+  <app-get-info></app-get-info>
   <!-- Error message -->
   <div *ngIf="error" class="error-message">
     {{ error }}
@@ -8,6 +8,8 @@
       Backend server appears to be offline. Please ensure the Flask server is running on port 5000.
     </div>
   </div>
+
+  <!-- <img [src]="imageUrl" alt="Opis slike" width="300" /> -->
 
   <!-- Setup section with persona selection and user context -->
   <div *ngIf="showContextForm" class="setup-section">

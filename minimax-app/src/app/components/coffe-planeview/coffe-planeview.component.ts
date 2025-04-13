@@ -36,6 +36,7 @@ export class CoffePlaneviewComponent {
       // console.log(this.product.images);
       // console.log(this.link);
     }
+    this.router.navigate(['chatbot']);
   }
 
   // Suggested additional method for image handling
