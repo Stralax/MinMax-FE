@@ -1,17 +1,20 @@
 import { Component } from '@angular/core';
-import { Route } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-coffee',
   imports: [],
   templateUrl: "./coffee.component.html",
+  host: {
+    'ngSkipHydration': 'true'  // <-- Add this
+  },
   styles: ``
 })
 export class CoffeeComponent {
-  // constructor(private route: Route) {}  // <-- Inject Router
+  constructor(private router: Router) {}  // <-- Inject Router
 
-  // navigateToCoffee() {
-  //   this.route.navigate(['/coffee']);  // <-- Define navigation method
-  // }
+  navigateToCoffee() {
+    this.router.navigate(['coffee']);  // <-- Define navigation method
+  }
 
 }

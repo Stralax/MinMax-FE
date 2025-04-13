@@ -92,31 +92,26 @@ body {
 }
 
 .cup-button {
+    /* Current dimensions you want to change */
+    height: 110px;       /* Adjust height */
+    width: 100%;         /* Adjust width behavior */
+    max-width: 180px;    /* Adjust maximum width */
+    
+    /* Suggested additions for better control */
+    min-width: 120px;    /* Prevent becoming too narrow */
+    box-sizing: border-box; /* Include padding in dimensions */
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 8px 16px;
-    background-color: #4CAF50;
     opacity: 0;
-    color: white;
-    border: none;
-    height: 110px;
-    width: 100%;
-    max-width: 180px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    z-index: 2;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
+    top: 50px;         /* 20px from top */
+    left: 130px;        /* 30px from left */
+    z-index: 150;
+    transform: translate(-50%, -50%); /* Centers perfectly */
   }
 
-  .cup-button:hover {
+  /* .cup-button:hover {
     background-color: #45a049;
     transform: translate(-50%, -50%) scale(1.05);
-  }
+  } */
 
 .bottom {
     background-color: #fff;

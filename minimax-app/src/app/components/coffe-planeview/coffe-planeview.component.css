@@ -2,12 +2,12 @@ body {
   display: flex;
   justify-content: flex-start; /* Changed from center */
   align-items: center;
-  height: 100vh;
+  height: 99vh;
   margin: 0;
   color: azure;
   /* background-image: url("../../istockphoto-614018428-612x612.jpg");  */
   background-image: url("../../../../public/assets/images/background2.png");
-  background-size: 100% 100%;
+  background-size: cover;
   /* padding-left: 20%; Positions coffee at quarter screen */
 }
 
@@ -61,35 +61,6 @@ body {
   text-shadow: 1px 1px #d8c3a5;
 }
 
-.drop-zone {
-  width: 200px;
-  height: 200px;
-  border: 2px dashed #a9825a;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  cursor: pointer;
-  margin: auto;
-  background: #fffaf3;
-  text-align: center;
-}
-
-.image-preview {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.image-preview img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
 /* Main container for both elements */
 .main-container {
   display: flex;
@@ -98,14 +69,17 @@ body {
   width: 100%;
   height: 100vh;
   gap: 50px; /* Space between cup and notepad */
-  padding: 0 10%; /* Adjust as needed */
+  padding: 0 9%; /* Adjust as needed */
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Coffee container */
 .coffee-container {
   flex: 0 0 auto; /* Don't grow or shrink */
   position: relative;
-  margin-right: 200px; /* Additional spacing if needed */
+  margin-right: 150px; /* Additional spacing if needed */
 }
 
 /* Notepad container */
