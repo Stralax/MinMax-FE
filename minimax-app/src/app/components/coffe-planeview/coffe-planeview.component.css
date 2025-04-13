@@ -98,7 +98,7 @@ body {
 #checklist {
   background: #fff;
   border-left: 5px solid #D4A464;
-  width: 400px;
+  width: 350px;
   min-width: 350px;
   padding: 20px;
   border-radius: 5px;
@@ -114,7 +114,6 @@ body {
   font-size: 25px; /* Slightly reduced for better fit */
   white-space: pre-wrap;
   word-wrap: break-word;
-  white-space: normal;
 }
 
 /* Hide the default file input text */
@@ -134,21 +133,29 @@ input[type="file"]::before {
 }
 
 .my-button {
+  position: relative;
+  margin-top: 20px;
+  margin-left: 23%;
   padding: 12px 24px;
   background-color: #4CAF50; /* Green */
-  color: white;
   border: none;
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 15px 40px;
+  border-radius: 4px;
+  font-weight: normal;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
 }
 
 .my-button:hover {
-  background-color: #45a049; /* Darker green */
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px #79ed7d;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .my-button:active {

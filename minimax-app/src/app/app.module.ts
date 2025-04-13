@@ -6,11 +6,8 @@ import { routes } from './app.routes';
 import { CoffeeComponent } from './components/coffeeStart/coffee/coffee.component';  // Import your CoffeeComponent
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CoffeeComponent,  // Declare your CoffeeComponent here
-  ],
-  imports: [BrowserModule, RouterModule.forRoot(routes)],
-  bootstrap: [AppComponent],  // Ensure the root component is bootstrapped
+  
+  imports: [AppComponent, CoffeeComponent, BrowserModule, RouterModule.forRoot(routes)],
+  
 })
 export class AppModule {}

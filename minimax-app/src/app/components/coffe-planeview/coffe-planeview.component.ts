@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule, NotepadComponent],
   templateUrl: './coffe-planeview.component.html',
-  styleUrls: ['./coffe-planeview.component.css'] // Changed from 'styles' to 'styleUrls'
+  styles: ''
 })
 export class CoffePlaneviewComponent {
   uploadedImages: File[] = [];
