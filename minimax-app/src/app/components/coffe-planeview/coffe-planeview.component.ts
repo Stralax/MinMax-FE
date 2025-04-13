@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NotepadComponent } from '../notepad/notepad/notepad.component';
 
 @Component({
   selector: 'app-coffe-planeview',
-  imports: [CommonModule],
+  imports: [CommonModule, NotepadComponent],
   templateUrl: './coffe-planeview.component.html',
   styles: ''
 })

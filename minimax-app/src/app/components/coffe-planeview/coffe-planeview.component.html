@@ -1,45 +1,35 @@
 <!DOCTYPE html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="coffe-planeview.component.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <title>"CoffeePlaneView"</title>
-
-  </head>
-  <body>
-
-
-    <div class="final-result">
-        <div class="content">
-
-
-          <section>
-
-
-              <div class="final__coffee">
-                  <div class="final__coffee-cup">
-                      <div class="final__handle"></div>
-                    </div>
-                    <input type="file" id="fileElem" accept="image/*">
-                    <div class="final__brew">
-                        <div class="drop-area" id="drop-area" *ngIf="noPictureYet">
-                            <label for="inputImage" id="imageUploadArea" (dragover)="$event.preventDefault()"
-                                (drop)="onImageDrop($event)">
-                                <input type="file" id="inputImage" name="inputImage" accept="image/*" multiple hidden
-                                    (change)="onImageChange($event)">
-                                    <div class="coffee-text">Drag and drop the picture to lear your future</div>
-                            </label>
-                        </div>
-                    </div>
-            </div>
-          </section>
-
-
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="coffe-planeview.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <title>CoffeePlaneView</title>
+</head>
+<body>
+  <div class="main-container">
+    <!-- Coffee Cup -->
+    <div class="coffee-container">
+      <div class="final__coffee">
+        <div class="final__coffee-cup">
+          <div class="final__handle"></div>
         </div>
+        <input type="file" id="fileElem" accept="image/*">
+        <div class="final__brew">
+          <div class="drop-area" id="drop-area" *ngIf="noPictureYet">
+            <label for="inputImage" id="imageUploadArea" (dragover)="$event.preventDefault()"
+                (drop)="onImageDrop($event)">
+              <input type="file" id="inputImage" name="inputImage" accept="image/*" multiple hidden
+                    (change)="onImageChange($event)">
+              <div class="coffee-text">Drag and drop the picture to learn your future</div>
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
-
-
     
-
-  </body>
-
+    <!-- Notepad -->
+    <div class="notepad-container">
+      <app-notepad></app-notepad>
+    </div>
+  </div>
+</body>
